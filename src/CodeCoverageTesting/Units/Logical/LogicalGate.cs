@@ -1,11 +1,10 @@
-﻿namespace Units.Logical
+﻿namespace Units.Logical;
+
+public static class LogicalGate
 {
-    public static class LogicalGate
+    public static bool And(bool a, bool b)
     {
-        public static bool And(bool a, bool b)
-        {
-            if (a != true) return false;
-            return b == true;
-        }
+        if (a != true) return false;
+        return b == true;
     }
 }

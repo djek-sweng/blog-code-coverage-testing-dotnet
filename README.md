@@ -25,16 +25,15 @@ dotnet tool install -g dotnet-reportgenerator-globaltool
 You implement your tests using the well-known xUnit method. If you need initial help, you will find many examples on GitHub in the [xUnit repository](https://github.com/xunit/samples.xunit). For the first example test you write yourself an AND logic to be tested and save it in a separate .NET class library project.
 
 ```csharp
-namespace Units.Logical
+namespace Units.Logical;
+
+public static class LogicalGate
 {
-  public static class LogicalGate
-  {
     public static bool And(bool a, bool b)
     {
-      if (a != true) return false;
-      return b == true;
+        if (a != true) return false;
+        return b == true;
     }
-  }
 }
 ```
 
@@ -44,16 +43,15 @@ Then you implement a first test case in the previously created test project. For
 using Units.Logical;
 using Xunit;
  
-namespace Units.Test.TestCases
+namespace Units.Test.TestCases;
+
+public class LogicalGateTest
 {
-  public class LogicalGateTest
-  {
     [Fact]
     public void Should_BeFalse()
     {
-      Assert.False(LogicalGate.And(/*a*/ false, /*b*/ true));
+        Assert.False(LogicalGate.And(/*a*/ false, /*b*/ true));
     }
-  }
 }
 ```
 
